@@ -23,5 +23,5 @@
             </imports>
         </module>
     </modules>
-    <logging type="Syslog" ip="192.168.180.6" port="514" />
+    <!--<logging type="Syslog" ip="192.168.180.6" port="514" />-->
 </config>
