@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <module category="Netzwerk" context="rd_han" id="14586"
+		name="Han Parser" version="0.9.0">
+            <inputs>
+                <input type="string" const_name="url"
+		       init_value="https://smgw.lan/cgi-bin/hanservice.cgi">Url</input>
+                <input type="string" const_name="username"
+		       init_value="">User</input>
+                <input type="string" const_name="password"
+		       init_value="">Password</input>
+            </inputs>
+            <outputs>
+                <output type="number" const_name="kwh"
+			init_value="0">kWh</output>		
+                <output type="number" const_name="kw"
+			init_value="0">kW</output>		
+            </outputs>
+            <imports>
+                <import>lib/bs4</import>
+                <import>hsl20_4_timer</import> 
+            </imports>
+        </module>
+    </modules>
+    <logging type="Syslog" ip="192.168.180.6" port="514" />
+</config>
