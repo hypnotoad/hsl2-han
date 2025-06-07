@@ -20,7 +20,7 @@ class HanParser14586(hsl20_4.BaseModule):
     def __init__(self, homeserver_context):
         hsl20_4.BaseModule.__init__(self, homeserver_context, "rd_han")
         self.FRAMEWORK = self._get_framework()
-        self.LOGGER = self._get_logger(hsl20_4.LOGGING_SYSLOG,("192.168.180.6",514))
+        self.LOGGER = self._get_logger(hsl20_4.LOGGING_NONE,())
         self.PIN_I_URL=1
         self.PIN_I_USERNAME=2
         self.PIN_I_PASSWORD=3
