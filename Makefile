@@ -1,10 +1,11 @@
 number = 14586
-name = han
-hslfile = $(number)_$(name).hsl
+name = HanParser
 bs4 = beautifulsoup4-4.9.3
 
+include ../docker-setup.mk
+
 release/$(hslfile): config.xml src/*.py lib/bs4 lib/hanparse/base.py
-	docker run --volume $(shell pwd):/hsl/projects/$(name) --workdir /hsl lindra/gira /usr/bin/python2 generator.pyc $(name)
+	$(python2) generator.pyc $(name)
 
 interactive: lib/bs4
 	docker run -it --volume $(shell pwd):/project -e PYTHONPATH=/project/lib --workdir /project lindra/gira /usr/bin/python2 
@@ -19,4 +20,5 @@ lib/bs4: lib/$(bs4).tar.gz
 	rmdir lib/$(bs4)
 
 clean:
+	rm -rf lib/bs4
 	rm -f release/$(hslfile)
