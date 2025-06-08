@@ -2,7 +2,7 @@
 <config>
     <modules>
         <module category="Netzwerk" context="rd_han" id="14586"
-		name="Han Parser" version="0.9.0">
+		name="HanParser" version="0.9.0">
             <inputs>
                 <input type="string" const_name="url"
 		       init_value="https://smgw.lan/cgi-bin/hanservice.cgi">Url</input>
