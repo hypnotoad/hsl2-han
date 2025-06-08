@@ -4,7 +4,7 @@ bs4 = beautifulsoup4-4.9.3
 
 include ../docker-setup.mk
 
-release/$(hslfile): config.xml src/*.py lib/bs4 lib/hanparse/base.py
+$(hslfile): config.xml src/*.py lib/bs4 lib/hanparse/base.py
 	$(python2) generator.pyc $(name)
 
 interactive: lib/bs4
@@ -21,4 +21,4 @@ lib/bs4: lib/$(bs4).tar.gz
 
 clean:
 	rm -rf lib/bs4
-	rm -f release/$(hslfile)
+	rm -f $(hslfile)
