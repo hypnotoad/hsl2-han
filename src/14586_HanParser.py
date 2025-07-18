@@ -49,6 +49,10 @@ class HanParser14586(hsl20_4.BaseModule):
         self.password = self._get_input_value(self.PIN_I_PASSWORD)
         self.url = self._get_input_value(self.PIN_I_URL)
 
+        if self.timer:
+            self.timer.stop()
+            self.timer = None
+            
         if self.username and self.password and self.url:
 
             try:
@@ -59,11 +63,6 @@ class HanParser14586(hsl20_4.BaseModule):
             self.timer = self.FRAMEWORK.create_interval()
             self.timer.set_interval(1000*900, self.on_timer_timeout)
             self.timer.start()
-        else:
-            self.connection = None
-            if self.timer:
-                self.timer.stop()
-            self.timer = None
 
     def on_input_value(self, index, value):
         self.LOGGER.info("on_input_value %d %s" % (index, value))
