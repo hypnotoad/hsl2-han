@@ -50,8 +50,11 @@ class HanParser14586(hsl20_4.BaseModule):
         self.url = self._get_input_value(self.PIN_I_URL)
 
         if self.username and self.password and self.url:
-            
-            self.parse_measurement()
+
+            try:
+                self.parse_measurement()
+            except Exception as e:
+                self.LOGGER.info("Error: %s" % e)
 
             self.timer = self.FRAMEWORK.create_interval()
             self.timer.set_interval(1000*900, self.on_timer_timeout)
@@ -99,7 +102,11 @@ class HanParser14586(hsl20_4.BaseModule):
         self.prev_time = time
 
     def on_timer_timeout(self):
-        self.parse_measurement()
+        try:
+            self.parse_measurement()
+        except Exception as e:
+            self.LOGGER.info("Error: %s" % e)
+
         
     def setup_connection(self, username, password, urlstring):
         # create opener from all parameters
